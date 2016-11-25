@@ -16,6 +16,7 @@
                 <div><?php echo $i;?></div>
             <?php endfor; ?>
     </div>
+    <?php include('includes/footer.inc'); ?>
 </body>
 
 </html>
