@@ -43,4 +43,8 @@
                 $this->password = array_key_exists('password', $attributes) ? $attributes['password'] : "";
             }
         }
+
+        public function create() {
+            $connect = self::start();
+        }
     }
