@@ -83,6 +83,15 @@ require_once("../helpers/connect.php");
             return $stm->execute();
         }
 
+         public static function select($id) {
+            $connect = self::start();
+            $sql = "SELECT * FROM user WHERE id=:id";
+            $stm=$connect->prepare($sql);
+            $stm->bindValue(:id, $id, PDO::PARAM_INT);
+            $stm->execute();
+            return $stm->fetch(PDO::FETCH_OBJ);
+        }
+
         // public static function read($id) {
         //     $connect = self::start();
         //     $stm = $connect->prepare('SELECT `name`, `marital_status`, `course`, `registration`, `rg`, `organ`, `cpf`, `email`, `password`, `address_id`, `position_id`, `company_id`, `start_date`, `end_date`, `level` FROM(:name, :marital_status, :course, :registration, :rg, :organ, :cpf, :email, :password, :address_id, :position_id, :company_id, :start_date, :end_date, :level)');
@@ -105,7 +114,3 @@ require_once("../helpers/connect.php");
         // }
 
     }
-
-    $connect = Connect::start();
-    $stm = $connect->prepare('INSERT INTO `actual_position`(`name`) VALUES "corretor"');
-    return $stm->execute();

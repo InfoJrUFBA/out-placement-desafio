@@ -1,4 +1,4 @@
-<form>
+<form action="../controllers/UserController.php" method="POST">
     <label>Nome Completo</label>
     <input type="text" name="name"></input>
     <label>E-mail</label>
@@ -18,7 +18,7 @@
     <label>Curso</label>
     <input type="text" name="course"></input>
     <label>Início do Período de Participação</label>
-    <input type="text" name="start-date"></input>
+    <input type="text" name="start_date"></input>
     <label>Fim do Período de Participação</label>
     <input type="text" name="end_date"></input>
     <label>Nível de acesso</label>
