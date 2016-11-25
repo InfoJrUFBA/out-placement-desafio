@@ -76,3 +76,14 @@ header nav ul li ul li a:hover {
     margin: 2px;
     display: inline-table;
 }
+
+.inner {
+    max-width: 930px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.footer {
+    text-align: center;
+    font-size: 0.8em;
+}
