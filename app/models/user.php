@@ -1,4 +1,5 @@
 <?php
+require_once("../helpers/connect.php");
 
     class User extends Connect {
 
@@ -60,4 +61,51 @@
             $stm->bindValue(':level', $this->level, PDO::PARAM_INT);
             return $stm->execute();
         }
+
+        public function update() {
+            $connect = self::start();
+            $stm = $connect->prepare('UPDATE `user` SET `name`=:name, `marital_status`=:marital_status, `course`=:course, `registration`=:registration, `rg`=:rg, `organ`=:organ, `cpf`=:cpf, `email`=:email, `address_id`=:address_id, `position_id`=:position_id, `company_id`=:company_id, `start_date`=:start_date, `end_date`=:end_date, `level`=:level WHERE `id`=:id ');
+            $stm->bindValue(':id', $this->id, PDO::PARAM_INT);
+            $stm->bindValue(':name', $this->name, PDO::PARAM_STR);
+            $stm->bindValue(':marital_status', $this->marital_status, PDO::PARAM_INT);
+            $stm->bindValue(':course', $this->course, PDO::PARAM_STR);
+            $stm->bindValue(':registration', $this->registration, PDO::PARAM_STR);
+            $stm->bindValue(':rg', $this->rg, PDO::PARAM_STR);
+            $stm->bindValue(':organ', $this->organ, PDO::PARAM_STR);
+            $stm->bindValue(':cpf', $this->cpf, PDO::PARAM_STR);
+            $stm->bindValue(':email', $this->email, PDO::PARAM_STR);
+            $stm->bindValue(':address_id', $this->address_id, PDO::PARAM_INT);
+            $stm->bindValue(':position_id', $this->position_id, PDO::PARAM_INT);
+            $stm->bindValue(':company_id', $this->company_id, PDO::PARAM_INT);
+            $stm->bindValue(':start_date', $this->start_date, PDO::PARAM_STR);
+            $stm->bindValue(':end_date', $this->end_date, PDO::PARAM_STR);
+            $stm->bindValue(':level', $this->level, PDO::PARAM_INT);
+            return $stm->execute();
+        }
+
+        // public static function read($id) {
+        //     $connect = self::start();
+        //     $stm = $connect->prepare('SELECT `name`, `marital_status`, `course`, `registration`, `rg`, `organ`, `cpf`, `email`, `password`, `address_id`, `position_id`, `company_id`, `start_date`, `end_date`, `level` FROM(:name, :marital_status, :course, :registration, :rg, :organ, :cpf, :email, :password, :address_id, :position_id, :company_id, :start_date, :end_date, :level)');
+        //     $stm->bindValue(':id', $this->id, PDO::PARAM_INT);
+        //     $stm->bindValue(':name', $this->name, PDO::PARAM_STR);
+        //     $stm->bindValue(':marital_status', $this->marital_status, PDO::PARAM_INT);
+        //     $stm->bindValue(':course', $this->course, PDO::PARAM_STR);
+        //     $stm->bindValue(':registration', $this->registration, PDO::PARAM_STR);
+        //     $stm->bindValue(':rg', $this->rg, PDO::PARAM_STR);
+        //     $stm->bindValue(':organ', $this->organ, PDO::PARAM_STR);
+        //     $stm->bindValue(':cpf', $this->cpf, PDO::PARAM_STR);
+        //     $stm->bindValue(':email', $this->email, PDO::PARAM_STR);
+        //     $stm->bindValue(':address_id', $this->address_id, PDO::PARAM_INT);
+        //     $stm->bindValue(':position_id', $this->position_id, PDO::PARAM_INT);
+        //     $stm->bindValue(':company_id', $this->company_id, PDO::PARAM_INT);
+        //     $stm->bindValue(':start_date', $this->start_date, PDO::PARAM_STR);
+        //     $stm->bindValue(':end_date', $this->end_date, PDO::PARAM_STR);
+        //     $stm->bindValue(':level', $this->level, PDO::PARAM_INT);
+        //     return $stm->execute();
+        // }
+
     }
+
+    $connect = Connect::start();
+    $stm = $connect->prepare('INSERT INTO `actual_position`(`name`) VALUES "corretor"');
+    return $stm->execute();
