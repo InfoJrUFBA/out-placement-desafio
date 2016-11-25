@@ -9,6 +9,7 @@
         <div>
             <h1> Criar Usuário </h1>
             <?php include('includes/user-form.inc'); ?>
+            <button>Enviar</button>
         </div>
     </body>
 </html>
