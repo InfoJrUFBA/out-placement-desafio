@@ -46,5 +46,6 @@
 
         public function create() {
             $connect = self::start();
+            $stm = $connect->prepare('INSERT INTO `users`()');
         }
     }
