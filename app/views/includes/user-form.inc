@@ -13,13 +13,15 @@
     <input type="text"></input>
     <label>Estado Civil</label>
     <input type="text"></input>
-    <label>Telefone</label>
+    <label>Telefones</label>
     <input type="text"></input>
     <label>Curso</label>
     <input type="text"></input>
     <label>Cargos Ocupados</label>
     <input type="text"></input>
-    <label>Período de Participação</label>
+    <label>Início do Período de Participação</label>
+    <input type="text"></input>
+    <label>Fim do Período de Participação</label>
     <input type="text"></input>
     <label>Projetos em que Participou</label>
     <input type="text"></input>
@@ -27,7 +29,6 @@
     <input type="text"></input>
     <label>Cargo Atual</label>
     <input type="text"></input>
-    <button>Enviar</button>
-    <button>Mudar Senha</button>
-    <button>Deletar</button>
+    <label>Redes Sociais</label>
+    <input type="text"></input>
 </form>
