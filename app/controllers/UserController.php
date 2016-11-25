@@ -1,7 +1,7 @@
 <?php
     require_once('../models/user.php');
     public static function create(){
-        if ($_POST['name'] != '' && $_POST['email'] != '' &&  $_POST['identification'] != ''  &&  $_POST['cpf'] != '' && $_POST['address'] != '' && $_POST['registration'] != '' && $_POST['civil'] != '' && $_POST['phone'] != '' && $_POST['course'] != '' && $_POST['jr_ocupation'] != '' && $_POST['participation_period'] != '' && $_POST['projects'] != '' && $_POST['current_business'] != '' && $_POST['current_ocupation'] != '' ) {
+        if ($_POST['name'] != '' && $_POST['email'] != '' &&  $_POST['rg'] != ''  &&  $_POST['cpf'] != '' && $_POST['address'] != '' && $_POST['registration'] != '' && $_POST['marital_status'] != '' && $_POST['phone'] != '' && $_POST['course'] != '' && $_POST['jr_ocupation'] != '' && $_POST['start_date'] != '' && $_POST['end_date'] != '' && $_POST['current_business'] != '' && $_POST['current_ocupation'] != '' ) {
             $user = new User($_REQUEST);
             try {
                 (empty($user->id)) ? $user->create() : $user->updatePassword();
