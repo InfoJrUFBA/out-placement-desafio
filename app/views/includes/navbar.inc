@@ -1,7 +1,11 @@
 <nav>
 	<ul>
-		<li><a href="#newUser">New User</a></li>
-		<li><a href="#newHole">New Hole</a></li>
-		<li><a href="#newProject">New Project</a></li>
+		<li><a href="#">Home</a></li>
+        <li><a href="#">Opções</i></a>
+            <ul>
+                <li><a href="">Meu perfil</a></li>
+                <li><a href="">Sair</a></li>
+            </ul>
+        </li>
 	<ul>
 </nav>
