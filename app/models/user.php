@@ -30,22 +30,33 @@
                 $this->organ = array_key_exists('organ', $attributes) ? $attributes['organ'] : "";
                 $this->cpf = array_key_exists('cpf', $attributes) ? $attributes['cpf'] : "";
                 $this->email = array_key_exists('email', $attributes) ? $attributes['email'] : "";
+                $this->password = array_key_exists('password', $attributes) ? $attributes['password'] : "";
                 $this->address_id = array_key_exists('address_id', $attributes) ? $attributes['address_id'] : "";
                 $this->position_id = array_key_exists('position_id', $attributes) ? $attributes['position_id'] : "";
                 $this->company_id = array_key_exists('company_id', $attributes) ? $attributes['company_id'] : "";
                 $this->start_date = array_key_exists('start_date', $attributes) ? $attributes['start_date'] : "";
                 $this->end_date = array_key_exists('end_date', $attributes) ? $attributes['end_date'] : "";
                 $this->level = array_key_exists('level', $attributes) ? $attributes['level'] : "";
-                $this->password = array_key_exists('password', $attributes) ? $attributes['password'] : "";
             }
         }
 
         public function create() {
             $connect = self::start();
-            $stm = $connect->prepare('INSERT INTO `user`(`name`, `email`, `password`, `level`)VALUES(:name, :email, :password, :level)');
+            $stm = $connect->prepare('INSERT INTO `user`(`name`, `marital_status`, `course`, `registration`, `rg`, `organ`, `cpf`, `email`, `password`, `address_id`, `position_id`, `company_id`, `start_date`, `end_date`, `level`) VALUES(:name, :marital_status, :course, :registration, :rg, :organ, :cpf, :email, :password, :address_id, :position_id, :company_id, :start_date, :end_date, :level)');
             $stm->bindValue(':name', $this->name, PDO::PARAM_STR);
+            $stm->bindValue(':marital_status', $this->marital_status, PDO::PARAM_INT);
+            $stm->bindValue(':course', $this->course, PDO::PARAM_STR);
+            $stm->bindValue(':registration', $this->registration, PDO::PARAM_STR);
+            $stm->bindValue(':rg', $this->rg, PDO::PARAM_STR);
+            $stm->bindValue(':organ', $this->organ, PDO::PARAM_STR);
+            $stm->bindValue(':cpf', $this->cpf, PDO::PARAM_STR);
             $stm->bindValue(':email', $this->email, PDO::PARAM_STR);
-            $stm->bindValue(':password', $this->password, PDO::PARAM_STR);
+            $stm->bindValue(':password', $this->password, PDO::PARAM_INT);
+            $stm->bindValue(':address_id', $this->address_id, PDO::PARAM_INT);
+            $stm->bindValue(':position_id', $this->position_id, PDO::PARAM_INT);
+            $stm->bindValue(':company_id', $this->company_id, PDO::PARAM_INT);
+            $stm->bindValue(':start_date', $this->start_date, PDO::PARAM_STR);
+            $stm->bindValue(':end_date', $this->end_date, PDO::PARAM_STR);
             $stm->bindValue(':level', $this->level, PDO::PARAM_INT);
             return $stm->execute();
         }
