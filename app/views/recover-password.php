@@ -5,7 +5,7 @@
         <title>Recuperação de Senha</title>
     </head>
     <body>
-        <form action="" method="POST">
+        <form action="../controllers/logincontroller.php" method="POST">
             <div>
                 <label>E-mail</label>
                 <input type="email" name="email" placeholder="Digite seu e-mail" required>

@@ -1,5 +1,5 @@
 <?php
-    require_once('../vendors/class.phpmailer.php');
+    require_once('../vendors/PHPMailer/class.phpmailer.php');
     class Mailer {
         public static function sendEmail($msg, $email, $topic){
             foreach (file('../.email-config') as $line) {
