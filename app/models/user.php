@@ -87,9 +87,19 @@ require_once("../helpers/connect.php");
             $connect = self::start();
             $sql = "SELECT * FROM user WHERE id=:id";
             $stm=$connect->prepare($sql);
-            $stm->bindValue(:id, $id, PDO::PARAM_INT);
+            $stm->bindValue(":id", $id, PDO::PARAM_INT);
             $stm->execute();
             return $stm->fetch(PDO::FETCH_OBJ);
+        }
+
+        public static function selectLogin($email, $password) {
+            $connect = self::start();
+            $sql = "SELECT * FROM user WHERE email=? AND password=?";
+            $stmt = $connect->prepare($sql);
+            $stmt->bindValue(1, $email);
+            $stmt->bindValue(2, $password);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
         }
 
         // public static function read($id) {
